@@ -25,6 +25,7 @@ import {
   AccordionIcon,
 } from "@chakra-ui/react";
 import { Link as ReachLink } from "react-router-dom";
+import FooterLinks from "../Components/FooterLinks";
 export default function Features() {
   return (
     <Box>
@@ -443,63 +444,7 @@ export default function Features() {
           </Grid>
         </Accordion>
       </Box>
-      <Box p={16} bg="gray.300">
-        <Flex w="80%" margin="auto">
-          <List>
-            <ListItem as="b">USES</ListItem>
-            <ListItem>Marketing video</ListItem>
-            <ListItem>Video ad</ListItem>
-            <ListItem>How-to video</ListItem>
-            <ListItem>Slideshow video</ListItem>
-            <ListItem>Social media</ListItem>
-            <ListItem>Promo video</ListItem>
-            <ListItem>Birthday video</ListItem>
-            <ListItem>Intro / Outro videos</ListItem>
-            <ListItem>Explainer video</ListItem>
-            <ListItem>Email marketing</ListItem>
-            <ListItem>Training video</ListItem>
-          </List>
-          <Spacer />
-          <List>
-            <ListItem as="b">ANIMOTO FOR</ListItem>
-            <ListItem>Business</ListItem>
-            <ListItem>Photography</ListItem>
-            <ListItem>Real Estate</ListItem>
-            <ListItem>Non-profit</ListItem>
-            <ListItem>Education</ListItem>
-            <ListItem>Ecommerce</ListItem>
-            <ListItem>Fitness</ListItem>
-            <ListItem>Marketing Agency</ListItem>
-            <ListItem>HR / People Ops</ListItem>
-            <ListItem>Corporate</ListItem>
-          </List>
-          <Spacer />
-          <List>
-            <ListItem as="b">FEATURES</ListItem>
-            <ListItem>Video commenting tool</ListItem>
-            <ListItem>Screen recorder</ListItem>
-            <ListItem>Photo video maker</ListItem>
-            <ListItem>Music library</ListItem>
-            <ListItem>Online video editor</ListItem>
-            <ListItem>Templates</ListItem>
-            <ListItem>Video trimming</ListItem>
-            <ListItem>Stock library</ListItem>
-            <ListItem>Voice over</ListItem>
-          </List>
-          <Spacer />
-          <List>
-            <ListItem as="b">COMPANY</ListItem>
-            <ListItem>Support</ListItem>
-            <ListItem>Blog</ListItem>
-            <ListItem>Careers</ListItem>
-            <ListItem>Press</ListItem>
-            <ListItem>Affiliates</ListItem>
-            <ListItem>Privacy policy</ListItem>
-            <ListItem>Terms of use</ListItem>
-            <ListItem>Animoto Tutorials</ListItem>
-          </List>
-        </Flex>
-      </Box>
+      <FooterLinks/>
       <Footer />
     </Box>
   );

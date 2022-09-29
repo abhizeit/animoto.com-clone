@@ -6,20 +6,39 @@ import {
   HStack,
   Text,
   VStack,
+  Image,
 } from "@chakra-ui/react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import Navbar from "../Components/Navbar";
 import { FaFacebook, FaFacebookF } from "react-icons/fa";
+import FooterLinks from "../Components/FooterLinks";
+import Footer from "../Components/Footer";
+import { useNavigate } from "react-router-dom";
 
 export default function Pricing() {
+  const navigate = useNavigate();
   return (
     <Box>
       <Navbar />
-      <Center w="100%">
+      <Center w="100%" bg="#f3f3f9" pos="relative">
+        <Image
+          width="10%"
+          zIndex="1"
+          pos="absolute"
+          top="20"
+          left="-5"
+          src="https://d2of6bhnpl91ni.cloudfront.net/images/site/Pricing_topright-red-splats-a15a235a32.svg"
+        />
         <Text as="b" color="#181C47" fontSize="3rem" py={6}>
           Choose your plan
         </Text>
       </Center>
+      <Box w="100%">
+        <Image
+         
+          src="https://d2of6bhnpl91ni.cloudfront.net/images/site/Hero_bottom-repeat-6af922ddb4.svg"
+        />
+      </Box>
       <Center w="100%">
         <VStack p={10}>
           <HStack spacing={10}>
@@ -83,7 +102,7 @@ export default function Pricing() {
                   <Text fontSize="1.5rem">/month</Text>
                 </HStack>
                 <Text fontSize="1.2rem">Billed as ₹3,480 every year</Text>
-                <Button variant="outline" colorScheme="messenger">
+                <Button variant="outline" colorScheme="messenger" onClick={()=>navigate("/checkout")}>
                   BUY BASIC
                 </Button>
               </VStack>
@@ -202,6 +221,31 @@ export default function Pricing() {
           </TabPanel>
         </TabPanels>
       </Tabs>
+      <Box>
+        <Text align="center" fontWeight="500" fontSize="2rem" p={6}>
+          All Plans include
+        </Text>
+        <HStack spacing="auto" w="80%" m="auto" py={6} pb={12}>
+          <Box w="17%" align="center">
+            <Image w="50%" src="https://d2of6bhnpl91ni.cloudfront.net/images/site/unlimited-d000100c75.svg" />
+            <Text  as="b">UNLIMITED VIDEO CREATION</Text>
+          </Box>
+          <Box w="17%" align="center">
+            <Image w="50%" src="https://d2of6bhnpl91ni.cloudfront.net/images/site/socialsharing-d83289b8ef.svg" />
+            <Text  as="b">SOCIAL SHARING</Text>
+          </Box>
+          <Box w="17%" align="center">
+            <Image w="50%" src="https://d2of6bhnpl91ni.cloudfront.net/images/site/musiclibrary-2dcac001c8.svg" />
+            <Text  as="b">MUSIC LIBRARY</Text>
+          </Box>
+          <Box w="17%" align="center">
+            <Image w="50%" src="https://d2of6bhnpl91ni.cloudfront.net/images/site/crossplatform-119e7f990e.svg" />
+            <Text  as="b">AVAILABLE ON DESKTOP AND IOS</Text>
+          </Box>
+        </HStack>
+      </Box>
+      <FooterLinks/>
+      <Footer/>
     </Box>
   );
 }

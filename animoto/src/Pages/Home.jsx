@@ -479,7 +479,7 @@ export default function Home() {
         </Center>
       </Box>
       {/* //footer */}
-      <Box p={16}>
+      <Box p={16} bg="#dadada">
         <Flex w="80%" margin="auto">
           <List>
             <ListItem as="b">USES</ListItem>

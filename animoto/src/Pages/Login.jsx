@@ -1,3 +1,7 @@
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../Auth/firebase";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
 import {
   Box,
   Center,
@@ -9,14 +13,51 @@ import {
   VStack,
   Spacer,
   Button,
-  HStack,
+  useToast,
+
 } from "@chakra-ui/react";
 import { Link as ReachLink } from "react-router-dom";
+import { useState } from "react";
 import Navbar from "../Components/Navbar";
 import { FaFacebook ,FaApple} from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from "../Context/AuthContextProvider";
+import { login } from "../Context/actions";
 
 export default function Login() {
+  const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    const navigate = useNavigate();
+    const toast = useToast();
+    const {dispatch} = useContext(AuthContext);
+
+    const handleClick=async()=>{
+      setLoading(true)
+      try{
+        const res = await(signInWithEmailAndPassword(auth,email,password))
+        dispatch(login(res.user.email))
+        setLoading(false)
+        toast({
+          title: 'Login Successful',
+          description: "You have signed in successfully",
+          status: 'success',
+          duration: 2000,
+          isClosable: true,
+        } )
+        navigate("/")
+      }catch(err){
+        setLoading(false)
+        toast({
+          title: 'Uh Oh!',
+          description:`${err.code}`,
+          status: 'error',
+          duration: 3000,
+          isClosable: true,
+        } )
+      }
+    }
   return (
     <Box>
       <Navbar />
@@ -38,10 +79,10 @@ export default function Login() {
               Welcome Back
             </Text>
             <Text fontSize="1.5rem">Log in to create your next video</Text>
-            <Input my={4} size="lg" placeholder="email" />
+            <Input my={4} size="lg" placeholder="email"value={email} onChange={(e)=>setEmail(e.target.value)}/>
             <Spacer />
-            <Input my={4} size="lg" placeholder="password" type="password"/>
-            <Button bg="#23408c" colorScheme="messenger" align="center">
+            <Input my={4} size="lg" placeholder="password" type="password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
+            <Button onClick={handleClick} bg="#23408c" colorScheme="messenger" align="center" isLoading={loading} loadingText="Logging In">
               LOG IN WITH EMAIL
             </Button>
             <Flex align="center" p={10}>

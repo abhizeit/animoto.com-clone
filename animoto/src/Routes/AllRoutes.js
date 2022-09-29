@@ -5,6 +5,7 @@ import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
 import Pricing from "../Pages/Pricing";
 import Checkout from "../Pages/Checkout";
+import PrivateRoute from "../Components/PrivateRoute";
 export default function AllRoutes() {
   return (
     <Routes>
@@ -13,7 +14,14 @@ export default function AllRoutes() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/features" element={<Features />} />
       <Route path="/pricing" element={<Pricing />} />
-      <Route path="/checkout" element={<Checkout />} />
+      <Route
+        path="/checkout"
+        element={
+          <PrivateRoute>
+            <Checkout />
+          </PrivateRoute>
+        }
+      />
     </Routes>
   );
 }
