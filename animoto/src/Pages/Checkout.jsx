@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Box,
   Button,
@@ -10,7 +11,7 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-
+import AlertDialog from "./CheckOutDialog";
 export default function Checkout() {
   return (
     <Center
@@ -63,9 +64,7 @@ export default function Checkout() {
         </Flex>
         <Divider />
         <Center py={6}>
-          <Button w="100%" size="lg" colorScheme="messenger" bg="#23408c">
-            PAY ₹3,480 NOW
-          </Button>
+          <AlertDialog/>
         </Center>
         <Text align="center">
           By purchasing, you agree to the terms of service and privacy policy.
