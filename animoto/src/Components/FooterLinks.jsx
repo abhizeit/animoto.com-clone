@@ -1,10 +1,15 @@
-import {Flex,Box,ListItem,List,Spacer} from "@chakra-ui/react"
+import {
+  Flex,
+  Box,
+  ListItem,
+  List,
+  Spacer,
+  SimpleGrid,
+} from "@chakra-ui/react";
 
-
-
-export default function  FooterLinks(){
-    return<Box p={16} bg="#dadada">
-    <Flex w="80%" margin="auto">
+export default function FooterLinks() {
+  return (<Box bg="#dadada">
+       <SimpleGrid columns={{sm:1,md:1,lg:4}} p={16} w="80%" margin="auto">
       <List>
         <ListItem as="b">USES</ListItem>
         <ListItem>Marketing video</ListItem>
@@ -19,7 +24,7 @@ export default function  FooterLinks(){
         <ListItem>Email marketing</ListItem>
         <ListItem>Training video</ListItem>
       </List>
-      <Spacer />
+
       <List>
         <ListItem as="b">ANIMOTO FOR</ListItem>
         <ListItem>Business</ListItem>
@@ -33,7 +38,7 @@ export default function  FooterLinks(){
         <ListItem>HR / People Ops</ListItem>
         <ListItem>Corporate</ListItem>
       </List>
-      <Spacer />
+
       <List>
         <ListItem as="b">FEATURES</ListItem>
         <ListItem>Video commenting tool</ListItem>
@@ -46,7 +51,6 @@ export default function  FooterLinks(){
         <ListItem>Stock library</ListItem>
         <ListItem>Voice over</ListItem>
       </List>
-      <Spacer />
       <List>
         <ListItem as="b">COMPANY</ListItem>
         <ListItem>Support</ListItem>
@@ -58,6 +62,8 @@ export default function  FooterLinks(){
         <ListItem>Terms of use</ListItem>
         <ListItem>Animoto Tutorials</ListItem>
       </List>
-    </Flex>
+    </SimpleGrid>
   </Box>
+ 
+  );
 }

@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { AuthContext } from "../Context/AuthContextProvider";
 import { logout } from "../Context/actions";
+import  NavBarDrawer from "./NavBarDrawer"
 
 export default function Navbar() {
   const { state, dispatch } = useContext(AuthContext);
@@ -30,7 +31,7 @@ export default function Navbar() {
     >
       <Flex>
         <Box>
-          <HStack spacing="24px">
+          <HStack spacing="24px" >
             <Link as={ReachLink} to="/">
               <Image
                 height="100%"
@@ -40,7 +41,7 @@ export default function Navbar() {
               />
             </Link>
 
-            <HStack spacing="24px">
+            <HStack spacing="24px" display={["none","none","Flex","flex"]}>
               <Link as="b" color="#23408c" fontSize="xl">
                 Create
               </Link>
@@ -64,7 +65,7 @@ export default function Navbar() {
         </Box>
         <Spacer />
         <Box>
-          <HStack spacing="24px">
+          <HStack spacing="24px" display={["none","none","Flex","flex"]}>
             <Button
               leftIcon={state.isPremiumUser ? <FaCrown /> : null}
               onClick={() => navigate("/login")}
@@ -87,7 +88,9 @@ export default function Navbar() {
             >
               {state.isAuth ? "LOGOUT" : "SIGNUP"}
             </Button>
-          </HStack>
+           
+          </HStack> 
+          <NavBarDrawer />
         </Box>
       </Flex>
     </Box>
