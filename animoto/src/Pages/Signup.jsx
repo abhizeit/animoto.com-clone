@@ -46,7 +46,7 @@ import {
         setLoading(false)
         toast({
           title: 'Uh Oh!',
-          description:`${err.code}`,
+          description:`${err.code.substring(5).toUpperCase()}`,
           status: 'error',
           duration: 9000,
           isClosable: true,

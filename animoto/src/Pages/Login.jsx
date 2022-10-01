@@ -37,6 +37,7 @@ export default function Login() {
       setLoading(true)
       try{
         const res = await(signInWithEmailAndPassword(auth,email,password))
+        console.log(res)
         dispatch(login(res.user.email))
         setLoading(false)
         toast({
@@ -51,7 +52,7 @@ export default function Login() {
         setLoading(false)
         toast({
           title: 'Uh Oh!',
-          description:`${err.code}`,
+          description:`${err.code.substring(5).toUpperCase()}`,
           status: 'error',
           duration: 3000,
           isClosable: true,

@@ -10,8 +10,8 @@ export const AuthContext = createContext();
 
 
 const intitState ={
-    isAuth: true,
-    user:"a",
+    isAuth: false,
+    user:"",
     isPremiumUser: false,
 }
 
