@@ -91,7 +91,7 @@ import {
               By signing up you agree to our terms of service and privacy policy.
               </Text>
               <Text fontSize="1.3rem">
-              Already have an account? <Link color="blue">Log in</Link>
+              Already have an account? <Link as={ReachLink} to="/login" color="blue">Log in</Link>
             </Text>
             </Box>
           </VStack>

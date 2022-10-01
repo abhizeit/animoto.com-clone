@@ -66,7 +66,7 @@ export default function Login() {
       <Center w="100%" py={16}>
         <VStack w="100%">
           <Text fontSize="1.3rem">
-            New to Animoto? <Link color="blue">Sign up free</Link>
+            New to Animoto? <Link as={ReachLink} to="/signup" color="blue">Sign up free</Link>
           </Text>
 
           <Box
