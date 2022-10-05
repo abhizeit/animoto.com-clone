@@ -11,6 +11,12 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import {
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText, Input
+} from '@chakra-ui/react'
 import AlertDialog from "./CheckOutDialog";
 export default function Checkout() {
   return (
@@ -23,15 +29,20 @@ export default function Checkout() {
       bg="#F3f3F9"
       borderRadius="md"
     >
-      <VStack w="40%">
-        <Image
-          w="60%"
-          src="https://animoto.com/static/Logo-769512d18812f2135069123e6840b976.svg"
-        />
-        <Text fontSize="3rem" fontWeight="300" align="center">
-          PURCHASE ANIMOTO
-        </Text>
-      </VStack>
+      <Box width="50%" boxShadow="base" p={10}>
+          <form >
+      <FormLabel >Card Number</FormLabel>
+      <Input boxShadow="base" type="password" maxLength="16" min={16}/>
+      <FormLabel>Expiry</FormLabel>
+      <Input boxShadow="base" type="date"/>
+     <FormLabel >CVV</FormLabel>
+     <Input  boxShadow="base" maxLength="3" type="password"/>
+      <FormLabel >Postal Code</FormLabel>
+      <Input  boxShadow="base" maxLength="6" type="text"/>
+
+     </form>
+      </Box>
+   
 
       <Box w="40%" p={16}>
         <Text fontSize="2rem" fontWeight="600" color="#181C47" align="center">

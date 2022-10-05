@@ -14,8 +14,11 @@ import { FaFacebook, FaFacebookF } from "react-icons/fa";
 import FooterLinks from "../Components/FooterLinks";
 import Footer from "../Components/Footer";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../Context/CartContext/CartContext";
+import { useContext } from "react";
 
 export default function Pricing() {
+  const { state, dispatch } = useContext(CartContext);
   const navigate = useNavigate();
   return (
     <Box>
@@ -34,10 +37,7 @@ export default function Pricing() {
         </Text>
       </Center>
       <Box w="100%">
-        <Image
-         
-          src="https://d2of6bhnpl91ni.cloudfront.net/images/site/Hero_bottom-repeat-6af922ddb4.svg"
-        />
+        <Image src="https://d2of6bhnpl91ni.cloudfront.net/images/site/Hero_bottom-repeat-6af922ddb4.svg" />
       </Box>
       <Center w="100%">
         <VStack p={10}>
@@ -102,7 +102,20 @@ export default function Pricing() {
                   <Text fontSize="1.5rem">/month</Text>
                 </HStack>
                 <Text fontSize="1.2rem">Billed as ₹3,480 every year</Text>
-                <Button variant="outline" colorScheme="messenger" onClick={()=>navigate("/checkout")}>
+                <Button
+                  variant="outline"
+                  colorScheme="messenger"
+                  onClick={() => {
+                    dispatch({
+                      type: "checkout",
+                      payload: {
+                        price: 3480,
+                        message: "Billed as ₹3,480 every year",
+                      },
+                    });
+                    navigate("/checkout");
+                  }}
+                >
                   BUY BASIC
                 </Button>
               </VStack>
@@ -227,25 +240,37 @@ export default function Pricing() {
         </Text>
         <HStack spacing="auto" w="80%" m="auto" py={6} pb={12}>
           <Box w="17%" align="center">
-            <Image w="50%" src="https://d2of6bhnpl91ni.cloudfront.net/images/site/unlimited-d000100c75.svg" />
-            <Text  as="b">UNLIMITED VIDEO CREATION</Text>
+            <Image
+              w="50%"
+              src="https://d2of6bhnpl91ni.cloudfront.net/images/site/unlimited-d000100c75.svg"
+            />
+            <Text as="b">UNLIMITED VIDEO CREATION</Text>
           </Box>
           <Box w="17%" align="center">
-            <Image w="50%" src="https://d2of6bhnpl91ni.cloudfront.net/images/site/socialsharing-d83289b8ef.svg" />
-            <Text  as="b">SOCIAL SHARING</Text>
+            <Image
+              w="50%"
+              src="https://d2of6bhnpl91ni.cloudfront.net/images/site/socialsharing-d83289b8ef.svg"
+            />
+            <Text as="b">SOCIAL SHARING</Text>
           </Box>
           <Box w="17%" align="center">
-            <Image w="50%" src="https://d2of6bhnpl91ni.cloudfront.net/images/site/musiclibrary-2dcac001c8.svg" />
-            <Text  as="b">MUSIC LIBRARY</Text>
+            <Image
+              w="50%"
+              src="https://d2of6bhnpl91ni.cloudfront.net/images/site/musiclibrary-2dcac001c8.svg"
+            />
+            <Text as="b">MUSIC LIBRARY</Text>
           </Box>
           <Box w="17%" align="center">
-            <Image w="50%" src="https://d2of6bhnpl91ni.cloudfront.net/images/site/crossplatform-119e7f990e.svg" />
-            <Text  as="b">AVAILABLE ON DESKTOP AND IOS</Text>
+            <Image
+              w="50%"
+              src="https://d2of6bhnpl91ni.cloudfront.net/images/site/crossplatform-119e7f990e.svg"
+            />
+            <Text as="b">AVAILABLE ON DESKTOP AND IOS</Text>
           </Box>
         </HStack>
       </Box>
-      <FooterLinks/>
-      <Footer/>
+      <FooterLinks />
+      <Footer />
     </Box>
   );
 }
