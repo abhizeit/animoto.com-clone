@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Center,
-  Divider,
   HStack,
   Text,
   VStack,
@@ -10,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import Navbar from "../Components/Navbar";
-import { FaFacebook, FaFacebookF } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
 import FooterLinks from "../Components/FooterLinks";
 import Footer from "../Components/Footer";
 import { useNavigate } from "react-router-dom";
@@ -20,6 +19,17 @@ import { useContext } from "react";
 export default function Pricing() {
   const { state, dispatch } = useContext(CartContext);
   const navigate = useNavigate();
+  const addToCart=(price,type,subscription)=>{
+    dispatch({
+      type: "checkout",
+      payload: {
+        price: price,
+        type: type,
+        subscription: subscription,
+      },
+    });
+    navigate("/checkout");
+  }
   return (
     <Box>
       <Navbar />
@@ -93,7 +103,7 @@ export default function Pricing() {
                   Basic
                 </Text>
                 <Text fontSize="1.2rem">
-                  Create unbranded videos with unlimited downloadsc
+                  Create unbranded videos with unlimited downloads
                 </Text>
                 <HStack>
                   <Text fontWeight="500" fontSize="4rem">
@@ -105,16 +115,7 @@ export default function Pricing() {
                 <Button
                   variant="outline"
                   colorScheme="messenger"
-                  onClick={() => {
-                    dispatch({
-                      type: "checkout",
-                      payload: {
-                        price: 3480,
-                        message: "Billed as ₹3,480 every year",
-                      },
-                    });
-                    navigate("/checkout");
-                  }}
+                  onClick={() => addToCart("3,480","Annual","Basic")}
                 >
                   BUY BASIC
                 </Button>
@@ -137,7 +138,7 @@ export default function Pricing() {
                 </HStack>
 
                 <Text fontSize="1.2rem">Billed as ₹6,730 every year</Text>
-                <Button variant="outline" colorScheme="messenger">
+                <Button variant="outline" colorScheme="messenger" onClick={()=>addToCart("6,730","Annual","Professional")}>
                   BUY PROFESSIONAL
                 </Button>
               </VStack>
@@ -155,7 +156,7 @@ export default function Pricing() {
                   <Text fontSize="1.5rem">/month</Text>
                 </HStack>
                 <Text fontSize="1.2rem">Billed as ₹17,490 every year</Text>
-                <Button variant="outline" colorScheme="messenger">
+                <Button variant="outline" colorScheme="messenger" onClick={()=>addToCart("17,490","Annual","Professinal Plus")}>
                   BUY PROFESSIONAL PLUS
                 </Button>
               </VStack>
@@ -192,7 +193,7 @@ export default function Pricing() {
                   <Text fontSize="1.5rem">/month</Text>
                 </HStack>
                 <Text fontSize="1.2rem">Billed as ₹550 every month</Text>
-                <Button variant="outline">BUY BASIC</Button>
+                <Button variant="outline" onClick={()=>addToCart("550","Monthly","Basic")}>BUY BASIC</Button>
               </VStack>
               <VStack align="start">
                 <Text fontSize="1.5rem" fontWeight="600" color="yellow.500">
@@ -212,7 +213,7 @@ export default function Pricing() {
                   <Text fontSize="1.5rem">/month</Text>
                 </HStack>
                 <Text fontSize="1.2rem">Billed as ₹1,080 every month</Text>
-                <Button variant="outline">BUY PROFESSIONAL</Button>
+                <Button variant="outline" onClick={()=>addToCart("1,080","Monthly","Professional")}>BUY PROFESSIONAL</Button>
               </VStack>
               <VStack align="start">
                 <Text fontSize="3rem" fontWeight="bold">
@@ -228,7 +229,7 @@ export default function Pricing() {
                   <Text fontSize="1.5rem">/month</Text>
                 </HStack>
                 <Text fontSize="1.2rem">Billed as ₹2,200 every month</Text>
-                <Button variant="outline">BUY PROFESSIONAL PLUS</Button>
+                <Button variant="outline" onClick={()=>addToCart("2,200","Monthly","Professional Plus")}>BUY PROFESSIONAL PLUS</Button>
               </VStack>
             </HStack>
           </TabPanel>

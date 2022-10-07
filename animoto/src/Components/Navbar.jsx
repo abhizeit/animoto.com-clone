@@ -9,6 +9,7 @@ import {
   Flex,
   Spacer,
   Button,
+  Center,
 } from "@chakra-ui/react";
 import { AuthContext } from "../Context/AuthContextProvider";
 import { logout } from "../Context/actions";
@@ -20,11 +21,11 @@ export default function Navbar() {
 
   return (
     <Box
-     pos="relative"
-     zIndex="1"
       w="100%"
-      px={10}
-      py={5}
+      paddingX={16}
+      paddingY={4}
+      alignItems="center"
+      backgroundSize="contain"
       borderBottom=".05rem solid grey"
       backgroundRepeat="no-repeat"
       backgroundImage="url('	https://animoto.com/static/AnimotoLogoBlobs-afa5652205594807da50c94d53f42b86.svg')"

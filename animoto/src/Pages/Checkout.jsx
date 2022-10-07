@@ -11,6 +11,8 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { CartContext } from "../Context/CartContext/CartContext";
+import { useContext } from "react";
 import {
   FormControl,
   FormLabel,
@@ -19,6 +21,8 @@ import {
 } from '@chakra-ui/react'
 import AlertDialog from "./CheckOutDialog";
 export default function Checkout() {
+  const {state}= useContext(CartContext);
+  console.log(state)
   return (
     <Center
       margin="auto"
@@ -51,14 +55,14 @@ export default function Checkout() {
         <Divider />
         <Flex pt={4}>
           <Box>
-            <Text>Annual subscription:</Text>
-            <Text>Animoto Basic</Text>
+            <Text>{state.type} subscription:</Text>
+            <Text>Animoto {state.subscription}</Text>
           </Box>
           <Spacer />
-          <Box>₹3,480</Box>
+          <Box>₹{state.price}</Box>
         </Flex>
         <Text py={6} align="start">
-          ₹290/mo billed as ₹3,480/year.
+        {`Billed as ₹${state.price} every ${state.type=="Annual"?"year":"month"}`}
         </Text>
 
         <Flex pt={4}>
@@ -70,7 +74,7 @@ export default function Checkout() {
           </Box>
           <Spacer />
           <Box fontSize="2rem" fontWeight="600" color="#181C47">
-            ₹3,480
+          ₹{state.price}
           </Box>
         </Flex>
         <Divider />

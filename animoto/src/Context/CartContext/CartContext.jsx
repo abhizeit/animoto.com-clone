@@ -3,12 +3,13 @@ import {createContext, useReducer} from "react"
 
 const initVal={
    price:"",
-   message:""
+   type:"",
+   subscription:"",
 }
 const reducer =(state,action)=>{
    switch (action.type){
       case "checkout":
-         return {...state,price:action.payload.price,message:action.payload.message}
+         return {...state,price:action.payload.price,type:action.payload.type,subscription:action.payload.subscription,}
       default:
          return state;
    }

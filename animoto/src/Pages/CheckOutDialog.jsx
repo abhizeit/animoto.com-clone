@@ -13,16 +13,15 @@ import {
 } from "@chakra-ui/react";
 import { useDisclosure, useToast } from "@chakra-ui/react";
 import  {checkout} from "../Context/actions"
-import { Navigate } from "react-router-dom";
+import { CartContext } from "../Context/CartContext/CartContext";
 
 export default function CheckOutDialog() {
   const { dispatch } = useContext(AuthContext);
+  const {state}= useContext(CartContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = React.useRef();
   const toast = useToast();
   const navigate = useNavigate();
-
-
 
   const handleClick = () => {
     onClose();
@@ -47,7 +46,7 @@ export default function CheckOutDialog() {
         bg="#23408c"
         onClick={onOpen}
       >
-        PAY ₹3,480 NOW
+        PAY ₹{state.price} NOW
       </Button>
 
       <AlertDialog
