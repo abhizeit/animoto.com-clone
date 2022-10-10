@@ -12,12 +12,12 @@ import {
   AlertDialogOverlay,
 } from "@chakra-ui/react";
 import { useDisclosure, useToast } from "@chakra-ui/react";
-import  {checkout} from "../Context/actions"
+import { checkout } from "../Context/actions";
 import { CartContext } from "../Context/CartContext/CartContext";
 
 export default function CheckOutDialog() {
   const { dispatch } = useContext(AuthContext);
-  const {state}= useContext(CartContext);
+  const { state } = useContext(CartContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = React.useRef();
   const toast = useToast();
@@ -33,8 +33,7 @@ export default function CheckOutDialog() {
       isClosable: true,
     });
     dispatch(checkout);
-    navigate("/")
-   
+    navigate("/");
   };
 
   return (
@@ -60,7 +59,7 @@ export default function CheckOutDialog() {
               CONFIRM PURCHASE
             </AlertDialogHeader>
 
-            <AlertDialogBody>AMOUNT TO BE PAID: ₹3,480</AlertDialogBody>
+            <AlertDialogBody>AMOUNT TO BE PAID: ₹{state.price}</AlertDialogBody>
 
             <AlertDialogFooter>
               <Button

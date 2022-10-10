@@ -67,14 +67,14 @@ import {
               align="center"
               borderRadius="md"
             >
-              <Text fontWeight="bold" fontSize="4rem" color="#181c47">
+              <Text fontWeight="bold" fontSize={{base:"1.8rem",md:"3.5rem",lg:"4rem"}} color="#181c47">
                Create a free account
               </Text>
               <Text fontSize="1.5rem">Make and share unlimited videos for freee</Text>
               <Input my={4} size="lg" placeholder="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
               <Spacer />
               <Input my={4} size="lg" placeholder="password" type="password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
-              <Button bg="#23408c" colorScheme="messenger" align="center" onClick={handleClick} isLoading={loading} loadingText="Signing up">
+              <Button size={["xs","sm","md","lg"]} bg="#23408c" colorScheme="messenger" align="center" onClick={handleClick} isLoading={loading} loadingText="Signing up">
                 CREATE AN ACCOUNT
               </Button>
               <Flex align="center" p={5}>
@@ -83,7 +83,7 @@ import {
                 <Divider />
               </Flex>
 
-                <Button size="lg" leftIcon={<FaFacebook />}>
+                <Button size={["xs","sm","md","lg"]}leftIcon={<FaFacebook />}>
                   SIGN UP WITH FACEBOOK
                 </Button>
               

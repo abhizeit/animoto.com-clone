@@ -72,11 +72,11 @@ export default function Login() {
           <Box
             w="80%"
             boxShadow="dark-lg"
-            p={16}
+            p={8}
             align="center"
             borderRadius="md"
           >
-            <Text fontWeight="bold" fontSize="4rem" color="#181c47">
+            <Text fontWeight="bold" fontSize={{base:"1.8rem",md:"3.5rem",lg:"4rem"}} color="#181c47">
               Welcome Back
             </Text>
             <Text fontSize="1.5rem">Log in to create your next video</Text>
@@ -91,16 +91,16 @@ export default function Login() {
               <Text padding="2">OR</Text>
               <Divider />
             </Flex>
-            <Flex  w="80%" pb={5}>
-              <Button size="lg" leftIcon={<FaFacebook />}>
+            <Flex  w="80%" pb={5} flexDirection={["column","column","column","row"]} >
+              <Button size={["xs","sm","md","lg"]} leftIcon={<FaFacebook />} my={2}>
                 LOGIN WITH FACEBOOK
               </Button>
               <Spacer />
-              <Button size="lg" leftIcon={<FcGoogle />}>
+              <Button size={["xs","sm","md","lg"]} leftIcon={<FcGoogle />} my={2}>
                 LOGIN WITH GOOGLE
               </Button>
               <Spacer/>
-              <Button size="lg" leftIcon={<FaApple />}>
+              <Button size={["xs","sm","md","lg"]} leftIcon={<FaApple />} my={2}>
                 LOGIN WITH APPLE
               </Button>
             </Flex>

@@ -6,6 +6,7 @@ import {
   Text,
   VStack,
   Image,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import Navbar from "../Components/Navbar";
@@ -19,7 +20,7 @@ import { useContext } from "react";
 export default function Pricing() {
   const { state, dispatch } = useContext(CartContext);
   const navigate = useNavigate();
-  const addToCart=(price,type,subscription)=>{
+  const addToCart = (price, type, subscription) => {
     dispatch({
       type: "checkout",
       payload: {
@@ -29,7 +30,7 @@ export default function Pricing() {
       },
     });
     navigate("/checkout");
-  }
+  };
   return (
     <Box>
       <Navbar />
@@ -42,27 +43,18 @@ export default function Pricing() {
           left="-5"
           src="https://d2of6bhnpl91ni.cloudfront.net/images/site/Pricing_topright-red-splats-a15a235a32.svg"
         />
-        <Text as="b" color="#181C47" fontSize="3rem" py={6}>
+        <Text as="b" color="#181C47" fontSize="3rem" py={6} align="center">
           Choose your plan
         </Text>
       </Center>
       <Box w="100%">
         <Image src="https://d2of6bhnpl91ni.cloudfront.net/images/site/Hero_bottom-repeat-6af922ddb4.svg" />
       </Box>
-      <Center w="100%">
-        <VStack p={10}>
-          <HStack spacing={10}>
-            <Text fontSize="2rem">Get started with a free account</Text>
-            <Button colorScheme="messenger" fontWeight="300" bg="#23408c">
-              SIGN UP FOR FREE
-            </Button>
-          </HStack>
-        </VStack>
-      </Center>
+
       <Tabs>
         <Center w="100%">
           <VStack>
-            <Text fontSize="1.2rem" p={49}>
+            <Text fontSize="1.2rem" p={49} align="center">
               Prices are shown in Indian Rupee
             </Text>
             <TabList>
@@ -73,14 +65,14 @@ export default function Pricing() {
                 MONTHLY
               </Tab>
             </TabList>
-            <Text fontSize="1rem">
+            <Text fontSize="1rem" align="center">
               Save up to 50% with an annual subscription
             </Text>
           </VStack>
         </Center>
         <TabPanels>
           <TabPanel>
-            <HStack spacing={12} p={12}>
+            <SimpleGrid columns={{ lg: 4, md: 2, sm: 1 }} spacing={12} p={12}>
               <VStack align="start">
                 <Text fontSize="3rem" fontWeight="bold">
                   Free
@@ -115,7 +107,7 @@ export default function Pricing() {
                 <Button
                   variant="outline"
                   colorScheme="messenger"
-                  onClick={() => addToCart("3,480","Annual","Basic")}
+                  onClick={() => addToCart("3,480", "Annual", "Basic")}
                 >
                   BUY BASIC
                 </Button>
@@ -138,7 +130,11 @@ export default function Pricing() {
                 </HStack>
 
                 <Text fontSize="1.2rem">Billed as ₹6,730 every year</Text>
-                <Button variant="outline" colorScheme="messenger" onClick={()=>addToCart("6,730","Annual","Professional")}>
+                <Button
+                  variant="outline"
+                  colorScheme="messenger"
+                  onClick={() => addToCart("6,730", "Annual", "Professional")}
+                >
                   BUY PROFESSIONAL
                 </Button>
               </VStack>
@@ -156,14 +152,20 @@ export default function Pricing() {
                   <Text fontSize="1.5rem">/month</Text>
                 </HStack>
                 <Text fontSize="1.2rem">Billed as ₹17,490 every year</Text>
-                <Button variant="outline" colorScheme="messenger" onClick={()=>addToCart("17,490","Annual","Professinal Plus")}>
+                <Button
+                  variant="outline"
+                  colorScheme="messenger"
+                  onClick={() =>
+                    addToCart("17,490", "Annual", "Professinal Plus")
+                  }
+                >
                   BUY PROFESSIONAL PLUS
                 </Button>
               </VStack>
-            </HStack>
+            </SimpleGrid>
           </TabPanel>
           <TabPanel>
-            <HStack spacing={12} p={12}>
+            <SimpleGrid columns={{ sm: 1, md: 2, lg: 4 }} spacing={12} p={12}>
               <VStack align="start">
                 <Text fontSize="3rem" fontWeight="bold">
                   Free
@@ -193,7 +195,12 @@ export default function Pricing() {
                   <Text fontSize="1.5rem">/month</Text>
                 </HStack>
                 <Text fontSize="1.2rem">Billed as ₹550 every month</Text>
-                <Button variant="outline" onClick={()=>addToCart("550","Monthly","Basic")}>BUY BASIC</Button>
+                <Button
+                  variant="outline"
+                  onClick={() => addToCart("550", "Monthly", "Basic")}
+                >
+                  BUY BASIC
+                </Button>
               </VStack>
               <VStack align="start">
                 <Text fontSize="1.5rem" fontWeight="600" color="yellow.500">
@@ -213,7 +220,12 @@ export default function Pricing() {
                   <Text fontSize="1.5rem">/month</Text>
                 </HStack>
                 <Text fontSize="1.2rem">Billed as ₹1,080 every month</Text>
-                <Button variant="outline" onClick={()=>addToCart("1,080","Monthly","Professional")}>BUY PROFESSIONAL</Button>
+                <Button
+                  variant="outline"
+                  onClick={() => addToCart("1,080", "Monthly", "Professional")}
+                >
+                  BUY PROFESSIONAL
+                </Button>
               </VStack>
               <VStack align="start">
                 <Text fontSize="3rem" fontWeight="bold">
@@ -229,9 +241,16 @@ export default function Pricing() {
                   <Text fontSize="1.5rem">/month</Text>
                 </HStack>
                 <Text fontSize="1.2rem">Billed as ₹2,200 every month</Text>
-                <Button variant="outline" onClick={()=>addToCart("2,200","Monthly","Professional Plus")}>BUY PROFESSIONAL PLUS</Button>
+                <Button
+                  variant="outline"
+                  onClick={() =>
+                    addToCart("2,200", "Monthly", "Professional Plus")
+                  }
+                >
+                  BUY PROFESSIONAL PLUS
+                </Button>
               </VStack>
-            </HStack>
+            </SimpleGrid>
           </TabPanel>
         </TabPanels>
       </Tabs>
@@ -239,36 +258,43 @@ export default function Pricing() {
         <Text align="center" fontWeight="500" fontSize="2rem" p={6}>
           All Plans include
         </Text>
-        <HStack spacing="auto" w="80%" m="auto" py={6} pb={12}>
-          <Box w="17%" align="center">
+        <SimpleGrid
+          columns={{ sm: 1, md: 2, lg: 4 }}
+          spacing="auto"
+          w="80%"
+          m="auto"
+          py={6}
+          pb={12}
+        >
+          <Box w="80%" align="center">
             <Image
               w="50%"
               src="https://d2of6bhnpl91ni.cloudfront.net/images/site/unlimited-d000100c75.svg"
             />
             <Text as="b">UNLIMITED VIDEO CREATION</Text>
           </Box>
-          <Box w="17%" align="center">
+          <Box w="80%" align="center">
             <Image
               w="50%"
               src="https://d2of6bhnpl91ni.cloudfront.net/images/site/socialsharing-d83289b8ef.svg"
             />
             <Text as="b">SOCIAL SHARING</Text>
           </Box>
-          <Box w="17%" align="center">
+          <Box w="80%" align="center">
             <Image
               w="50%"
               src="https://d2of6bhnpl91ni.cloudfront.net/images/site/musiclibrary-2dcac001c8.svg"
             />
             <Text as="b">MUSIC LIBRARY</Text>
           </Box>
-          <Box w="17%" align="center">
+          <Box w="80%" align="center">
             <Image
               w="50%"
               src="https://d2of6bhnpl91ni.cloudfront.net/images/site/crossplatform-119e7f990e.svg"
             />
             <Text as="b">AVAILABLE ON DESKTOP AND IOS</Text>
           </Box>
-        </HStack>
+        </SimpleGrid>
       </Box>
       <FooterLinks />
       <Footer />
