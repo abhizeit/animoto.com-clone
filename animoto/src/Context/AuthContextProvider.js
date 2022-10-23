@@ -5,7 +5,7 @@ import reducer from "./reducer";
 export const AuthContext = createContext();
 
 const intitState = {
-  isAuth: true,
+  isAuth: false,
   user: "",
   isPremiumUser: false,
 };
