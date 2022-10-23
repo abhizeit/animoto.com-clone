@@ -41,4 +41,7 @@ Start the server
 ```bash
   npm run start
 ```
+## Deployed Link
+
+ - [Animoto Clone](https://isnt-abhizeit-awesome.netlify.app/)
 
