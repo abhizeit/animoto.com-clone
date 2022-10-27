@@ -13,35 +13,11 @@ Create, edit, and share videos with our online video maker. Combine your photos,
 
 ## Screenshots
 
-![App Screenshot](https://abhizeit.github.io/images/animoto.png)
+![App Screenshot](https://abhizeit.github.io/images/carb_manager.png)
 
 
-## Run Locally
 
-Clone the project
-
-```bash
-  git clone https://github.com/abhizeit/kaput-chin-6583.git
-```
-
-Go to the project directory
-
-```bash
-  cd animoto
-```
-
-Install dependencies
-
-```bash
-  npm install
-```
-
-Start the server
-
-```bash
-  npm run start
-```
 ## Deployed Link
 
- - [Animoto Clone](https://isnt-abhizeit-awesome.netlify.app/)
+ - [Animoto Clone](https://ubiquitous-llama-09db74.netlify.app/)
 
