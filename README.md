@@ -16,7 +16,7 @@ Create, edit, and share videos with our online video maker. Combine your photos,
 Clone the project
 
 ```bash
-  git clone https://github.com/abhizeit/kaput-chin-6583.git
+  git clone https://github.com/abhizeit/animoto.com-clone
 ```
 
 Go to the project directory
